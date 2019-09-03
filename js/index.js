@@ -46,10 +46,10 @@ button[0].addEventListener('click', (e) => {
   const navEl = document.querySelector('.main-navigation')
   if (navEl.style.background !== 'goldenrod') {
     navEl.style.background = 'goldenrod';
-    button.textContent = 'Change back';
+    button[0].textContent = 'Change back';
   } else {
     navEl.style.background = '';
-    button.textContent = 'Nav Styles Incoming';
+    button[0].textContent = 'Nav Styles Incoming';
   }
 })
 
@@ -65,6 +65,17 @@ button[1].addEventListener('dblclick', (e) => {
     button[1].textContent = 'Double Click Me';
   }
 })
+
+// Add focus and blur events to nav links
+const navEl = document.querySelectorAll('.main-navigation a');
+
+navEl.forEach(item => item.addEventListener('focus', (e) => {
+  e.target.style.color = 'goldenrod';    
+}));
+
+navEl.forEach(item => item.addEventListener('blur', (e) => {
+  e.target.style.color = '';    
+}));
 
 
 
