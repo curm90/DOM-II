@@ -39,11 +39,14 @@ window.addEventListener('load', () => {
   console.log('window loaded');
 })
 
-// Add nav styles when clicking first button
+// Add nav styles when clicking first button and stop propagation
 const button = document.querySelectorAll('.btn');
 button[0].textContent = 'Nav Styles Incoming';
+
 button[0].addEventListener('click', (e) => {
+  e.stopPropagation();
   const navEl = document.querySelector('.main-navigation')
+
   if (navEl.style.background !== 'goldenrod') {
     navEl.style.background = 'goldenrod';
     button[0].textContent = 'Change back';
@@ -85,5 +88,16 @@ function reportWindowSize() {
 
 window.addEventListener('resize', reportWindowSize);
 
+// Add nested click event
+const destinationDiv = document.querySelector('.destination');
+destinationDiv.style.cursor = 'pointer';
+
+destinationDiv.addEventListener('click', (e) => {
+  if (destinationDiv.style.background !== 'red') {
+    destinationDiv.style.background = 'red';
+  } else {
+    destinationDiv.style.background = 'initial';
+  }
+})
 
 
