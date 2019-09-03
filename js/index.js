@@ -13,16 +13,17 @@ h2El.forEach(item => item.addEventListener('mouseover', (e) => {
 }))
 
 // Log the key that was pressed in the console 
-window.addEventListener('keydown', (e) => {
-  let code = e.code;
-  console.log(`You pressed the ${code} key.`)
-})
+window.addEventListener('keydown', (logPressedKey))
+
+function logPressedKey(e) {
+  console.log(`You pressed ${e.code}.`)
+}
 
 // Add keyup event log key to console
-document.addEventListener('keyup', logKey);
+document.addEventListener('keyup', logReleasedKey);
 
-function logKey(e) {
-  console.log(e.code);
+function logReleasedKey(e) {
+  console.log(`You released ${e.code}.`);
 }
 
 // Add wheel event to images
