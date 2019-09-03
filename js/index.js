@@ -39,16 +39,30 @@ window.addEventListener('load', () => {
   console.log('window loaded');
 })
 
-const button = document.querySelector('.btn');
-button.textContent = 'Nav styles incoming';
-button.addEventListener('click', (e) => {
+// Add nav styles when clicking first button
+const button = document.querySelectorAll('.btn');
+button[0].textContent = 'Nav Styles Incoming';
+button[0].addEventListener('click', (e) => {
   const navEl = document.querySelector('.main-navigation')
   if (navEl.style.background !== 'goldenrod') {
     navEl.style.background = 'goldenrod';
     button.textContent = 'Change back';
   } else {
     navEl.style.background = '';
-    button.textContent = 'Nav styles incoming';
+    button.textContent = 'Nav Styles Incoming';
+  }
+})
+
+// Make nav disapear when double clicking second button
+button[1].textContent = 'Double Click Me'
+button[1].addEventListener('dblclick', (e) => {
+  const navEl = document.querySelector('.main-navigation');
+  if (navEl.style.display !== 'none') {
+    navEl.style.display = 'none';
+    button[1].textContent = 'Bring Nav Back';
+  } else {
+    navEl.style.display = 'initial';
+    button[1].textContent = 'Double Click Me';
   }
 })
 
