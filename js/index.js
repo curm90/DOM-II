@@ -12,12 +12,18 @@ h2El.forEach(item => item.addEventListener('mouseover', (e) => {
   }
 }))
 
-// Log the key that was pressed in the console only if A-Z
+// Log the key that was pressed in the console 
 window.addEventListener('keydown', (e) => {
-  let code = e.keyCode;
-  if (code > 90 || code < 65) return
-  console.log(`You pressed the ${String.fromCharCode(code)} key.`)
+  let code = e.code;
+  console.log(`You pressed the ${code} key.`)
 })
+
+// Add keyup event log key to console
+document.addEventListener('keyup', logKey);
+
+function logKey(e) {
+  console.log(e.code);
+}
 
 // Add wheel event to images
 const paragraphEl = document.querySelector('p');
@@ -72,6 +78,11 @@ button[1].addEventListener('dblclick', (e) => {
 // Add focus and blur events to nav links
 const navEl = document.querySelectorAll('.main-navigation a');
 
+// Stop nav items from refreshig page by using prevent default 
+navEl.forEach(item => item.addEventListener('click', (e) => {
+  e.preventDefault();
+}));
+
 navEl.forEach(item => item.addEventListener('focus', (e) => {
   e.target.style.color = 'goldenrod';    
 }));
@@ -85,7 +96,6 @@ function reportWindowSize() {
   console.log(`Window Height: ${window.innerHeight}`);
   console.log(`Window Width: ${window.innerWidth}`);
 }
-
 window.addEventListener('resize', reportWindowSize);
 
 // Add nested click event
@@ -99,5 +109,7 @@ destinationDiv.addEventListener('click', (e) => {
     destinationDiv.style.background = 'initial';
   }
 })
+
+
 
 
