@@ -5,7 +5,7 @@ const h2El = document.querySelectorAll('h2');
 
 h2El.forEach(item => item.addEventListener('mouseover', (e) => {
   item.style.cursor = 'pointer';
-  if (item.style.color != 'red') {
+  if (item.style.color !== 'red') {
     item.style.color = 'red';
   } else {
     item.style.color = 'black';
@@ -13,7 +13,7 @@ h2El.forEach(item => item.addEventListener('mouseover', (e) => {
 }))
 
 // Log the key that was pressed in the console 
-window.addEventListener('keydown', (logPressedKey))
+window.addEventListener('keydown', logPressedKey)
 
 function logPressedKey(e) {
   console.log(`You pressed ${e.code}.`)
