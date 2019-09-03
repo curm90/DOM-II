@@ -33,3 +33,7 @@ function zoom(e) {
   // Apply scale transform
   paragraphEl.style.transform = `scale(${scale})`;
 }
+
+window.addEventListener('load', () => {
+  console.log('window loaded');
+})
