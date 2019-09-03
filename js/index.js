@@ -9,3 +9,9 @@ h2El.forEach(item => item.addEventListener('mouseover', (e) => {
     item.style.color = 'black';
   }
 }))
+
+window.addEventListener('keydown', (e) => {
+  let code = e.keyCode;
+  if (code > 90 || code < 65) return
+  console.log(`You pressed the ${String.fromCharCode(code)} key.`)
+})
