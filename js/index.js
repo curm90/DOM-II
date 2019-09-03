@@ -34,6 +34,24 @@ function zoom(e) {
   paragraphEl.style.transform = `scale(${scale})`;
 }
 
+// Add load event on window
 window.addEventListener('load', () => {
   console.log('window loaded');
 })
+
+const button = document.querySelector('.btn');
+button.textContent = 'Nav styles incoming';
+button.addEventListener('click', (e) => {
+  const navEl = document.querySelector('.main-navigation')
+  if (navEl.style.background !== 'goldenrod') {
+    navEl.style.background = 'goldenrod';
+    button.textContent = 'Change back';
+  } else {
+    navEl.style.background = '';
+    button.textContent = 'Nav styles incoming';
+  }
+})
+
+
+
+
